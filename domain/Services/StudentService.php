@@ -69,6 +69,7 @@ class StudentService
         $student->name = $request->name;
         $student->age = $request->age;
         $student->save();
+        return redirect()->route('dashboard');
 
 
     }

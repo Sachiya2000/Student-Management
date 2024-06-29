@@ -1,21 +1,21 @@
 <script setup>
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Head, router } from "@inertiajs/vue3";
-import { defineProps } from 'vue'; // Ensure defineProps is imported
+import { defineProps } from 'vue';
 
 const props = defineProps({
     students: Array
 });
 
-// Function to change student status
+// Change Status
 const changeStatus = (studentId) => {
     router.post(route('students.changeStatus', studentId), {
         onSuccess: () => {
-            // Handle success
+
             console.log('Status changed successfully');
         },
         onError: (errors) => {
-            // Handle error
+
             console.error('Error changing status:', errors);
         }
     });
@@ -26,11 +26,11 @@ const deleteStudent = (studentId) => {
     if (confirm('Are you sure you want to delete this student?')) {
         router.delete(route('students.destroy', studentId), {
             onSuccess: () => {
-                // Handle success
+
                 console.log('Student deleted successfully');
             },
             onError: (errors) => {
-                // Handle error
+
                 console.error('Error deleting student:', errors);
             }
         });
